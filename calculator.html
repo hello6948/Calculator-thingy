@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>bad calculator</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+			background-color: #242424;
+			color: white;
+			font-size: 30px;
+			font-family: Verdana;
+		}
+		table{
+			margin-left: auto;
+			margin-right: auto;
+			width: 100%;
+			background-color: red;
+			color: black;
+		}
+		table td{
+			width: 100%;
+			font-size: 25px;
+			height: 30px;
+			background-color: white;
+		}
+
+		button{
+			width: 100px;
+			height: 100px;
+			font-size: 20px;
+			margin: 10px 5px;
+			border-radius: 10px;
+			border: 5px solid black;
+		}
+		button:hover{
+			background-color: black;
+			border: 5px solid white;
+			color: white;
+		}
+		button:active{
+			color: gold;
+			border: 5px solid gold;
+		}
+
+		.msg{
+			background-color: teal;
+			color: red;
+			width: 30px;
+			height: 30px;
+			font-size: 12px;
+		}
+	</style>
+	<script type="text/javascript">
+		var a = ""
+		var de = 0
+		var b,res,ad,su,mu,di
+
+		function msg(){
+			alert("This is a calculator thingy where the buttons have to be manually pressed to give input. The input can't be taken from the keyboard. Also not possible for simultaneous arithmetic however you can use the sqrt function in the input value or sth can't really explain.")
+		}
+
+		function one(){
+			a = a + "1"
+			document.getElementById("val").innerHTML = a
+			res = a
+		}
+
+		function two(){
+			a = a + "2"
+			document.getElementById("val").innerHTML = a
+			res = a
+		}
+
+		function thr(){
+			a = a + "3"
+			document.getElementById("val").innerHTML = a
+			res = a
+		}
+
+		function fou(){
+			a = a + "4"
+			document.getElementById("val").innerHTML = a
+			res = a
+		}
+
+		function fiv(){
+			a = a + "5"
+			document.getElementById("val").innerHTML = a
+			res = a
+		}
+
+		function six(){
+			a = a + "6"
+			document.getElementById("val").innerHTML = a
+			res = a
+		}
+
+		function sev(){
+			a = a + "7"
+			document.getElementById("val").innerHTML = a
+			res = a
+		}
+
+		function eig(){
+			a = a + "8"
+			document.getElementById("val").innerHTML = a
+			res = a
+		}
+
+		function nin(){
+			a = a + "9"
+			document.getElementById("val").innerHTML = a
+			res = a
+		}
+
+		function zer(){
+			a = a + "0"
+			document.getElementById("val").innerHTML = a
+			res = a
+		}
+
+		function zer2() {
+			a = a + "00"
+			document.getElementById("val").innerHTML = a
+			res = a
+		}
+
+		function dec(){
+			if (de == 0){
+			a = a + "."
+			}
+			document.getElementById("val").innerHTML = a
+			res = a
+			de = 1
+		}
+
+		function clr(){
+			a=""
+			b=""
+			ad=su=mu=di=de = 0
+			document.getElementById("val").innerHTML=""
+		}
+
+		function del(){
+			if(a.slice(-1)=="."){
+				de=0
+			}
+			a = a.slice(0,a.length-1)
+			document.getElementById("val").innerHTML= a
+			res = a
+		}
+
+		function sqr(){
+			res = Math.sqrt(res)
+			document.getElementById("val").innerHTML = res
+		}
+
+		function mul(){
+			b=res
+			a=""
+			document.getElementById("val").innerHTML = a
+			mu = 1
+			ad=su=di=de=0
+		}
+
+		function div(){
+
+			b=res
+			a=""
+			document.getElementById("val").innerHTML=a
+			di=1
+			ad=su=mu=de=0
+		}
+
+		function add(){
+			b=res
+			a=""
+			document.getElementById("val").innerHTML=a
+			ad=1
+			di=su=mu=de=0
+		}
+
+		function sub(){
+			b=res
+			a=""
+			document.getElementById("val").innerHTML=a
+			su=1
+			di=ad=mu=de=0
+		}
+
+		function eql(){
+			if (ad == 1){
+				res= Number(a)+Number(b)
+				document.getElementById("val").innerHTML = res
+			}
+			if (su == 1){
+				res= b-a
+				document.getElementById("val").innerHTML = res
+			}
+			if (mu == 1){
+				res= res*b
+				document.getElementById("val").innerHTML = res
+			}
+			if (di == 1){
+				res= b/a
+				document.getElementById("val").innerHTML = res
+			}
+			else{
+				document.getElementById("val").innerHTML = res
+			}
+			ad=mu=su=di=de=0
+			a=""
+		}
+	</script>
+</head>
+<body>
+
+	<h1>Calculator test</h1>
+	<button onclick="msg()" class="msg">!</button>
+
+	<table>
+		<tr><td id="val"></td></tr>
+	</table>
+
+	<button onclick="one()">1</button>
+	<button onclick="two()">2</button>
+	<button onclick="thr()">3</button>
+	<button onclick="del()">DEL</button>
+	<button onclick="clr()">CLR</button>
+	<br>
+	<button onclick="fou()">4</button>
+	<button onclick="fiv()">5</button>
+	<button onclick="six()">6</button>
+	<button onclick="mul()">*</button>
+	<button onclick="div()">/</button>
+	<br>
+	<button onclick="sev()">7</button>
+	<button onclick="eig()">8</button>
+	<button onclick="nin()">9</button>
+	<button onclick="add()">+</button>
+	<button onclick="sub()">-</button>
+	<br>
+	<button onclick="zer2()">00</button>
+	<button onclick="zer()">0</button>
+	<button onclick="dec()">.</button>
+	<button onclick="sqr()">sqrt</button>
+	<button onclick="eql()">=</button>
+
+</body>
+</html>
